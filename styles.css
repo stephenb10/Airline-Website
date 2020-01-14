@@ -1,0 +1,75 @@
+header a{
+    padding: 20px;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover{
+    color: orange;
+    text-decoration: underline;
+    text-decoration-color: orange;
+    transition: 0.1s;
+}
+
+header h1 {
+    float: left;
+    margin: 0px;
+}
+
+header {
+    text-align: right;
+    padding: 20px;
+    padding-right: 100px;
+}
+
+#banner-image {
+    text-align: center;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+   
+    left: 0px;
+    width: 100%;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+
+/* Flights */
+#flights-container {
+    text-align: center;
+    margin: 0 auto;
+    width: 600px;
+    background-color: #90aaff;
+    border-radius: 25px;
+}
+
+#flights-container h2 {
+    display: inline-block;
+}
+
+.flight div {
+    display: inline-block;
+    text-align: right;
+}
+
+.flight span {
+    display: flex;
+    align-items: center;
+}
+
+.flight span p {
+    margin: 0px;
+}
+
+.flight span img {
+    padding-left: 10px;
+}
+
+.flight > div:first-of-type {
+    text-align: left;
+}
