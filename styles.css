@@ -9,6 +9,7 @@ header a{
     font-size: 1.5em;
     text-decoration: none;
     color: black;
+    margin: 0px;
 }
 
 header a:hover{
@@ -21,12 +22,24 @@ header a:hover{
 header h1 {
     float: left;
     margin: 0px;
+    padding-left: 20px;
 }
 
 header {
     text-align: right;
+    position: absolute;
+    
     padding: 20px;
-    padding-right: 100px;
+    padding-right: 0px;
+    padding-left: 0px;
+    
+    box-shadow: 0px 3px 6px 1px #bbbbbb;
+    width: 100%;
+    
+    left: 0px;
+    top: 0px;
+    
+    
 }
 
 #banner-image {
@@ -34,10 +47,16 @@ header {
     display: block;
     margin: 0px;
     padding: 0px;
+    padding-top: 100px;
     position: absolute;
    
     left: 0px;
     width: 100%;
+}
+
+.form {
+    padding-top: 100px;
+    text-align: center;
 }
 
 
@@ -47,17 +66,53 @@ header {
     text-align: center;
     margin: 0 auto;
     width: 1000px;
-    height: 400px;
     background-color: #ffffff;
     border-radius: 25px;
     position: absolute;
     top: 425px;
     left: 25%;
 
-    box-shadow: 0px 0px 0px 1px #000000 inset;
+    box-shadow: 0px 0px 1px 1px #bbbbbb inset;
     
   }
 
 #flights-container h2 {
     display: inline-block;
+}
+
+.flight-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 80px 20px 80px;
+    box-shadow: 0px 3px 6px 1px #bbbbbb;
+}
+
+.flight-item h3 {
+   font-size: 2.2em;
+   margin: 0px
+}
+
+.flight-item h3 + p {
+    margin: 0px
+ }
+ 
+
+.flight-item span {
+    display: inline-block;
+    padding: 20px;
+}
+
+.flight-item span:last-of-type {
+    margin-left: auto;
+}
+
+.flight-status {
+    display: flex;
+    align-items:top;
+ 
+}
+
+.flight-status p {
+    margin-top: 0px;
+    padding-right: 5px;
 }
