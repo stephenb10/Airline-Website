@@ -1,18 +1,8 @@
-
 body {
     font-family: 'PT Sans', sans-serif;
 }
-
-
-header a{
-    padding: 20px;
-    font-size: 1.5em;
-    text-decoration: none;
-    color: black;
-    margin: 0px;
-}
-
-header a:hover{
+/* Nav Bar*/
+header a:hover {
     color: orange;
     text-decoration: underline;
     text-decoration-color: orange;
@@ -20,152 +10,60 @@ header a:hover{
 }
 
 header h1 {
-    float: left;
     margin: 0px;
-    padding-left: 20px;
+    padding: 10px;
 }
 
 header {
-    box-sizing: border-box;
-    padding: 10px 275px 10px 275px;
-    text-align: right;
-    box-shadow: 0 4px 2px -2px gray;
-    width: 100%;
-}
-
-#banner-image {
     text-align: center;
-    display: block;
-    position: absolute;
+    box-shadow: 0px 3px 6px 1px #bbbbbb;
+    width: 100%;
+    top: 0;
     left: 0;
-    padding-top: 75px;
-    width: 100%;
 }
 
-
-#banner-image img{
-    width: 100%;
+header a {
+    font-size: 0.8em;
+    padding: 3px;
+    text-decoration: none;
+    color: black;
+    margin: 0px;
 }
+/* */
 
-.form {
-    text-align: center;
-    margin-left: 300px;
-    margin-right: 300px;
+/* Banner Image */
+#banner-image {
+    display: none;
 }
-
-.form h1 {
-    font-size: 3em;
-}
-
-form {
-    margin-left: 300px;
-    margin-right: 300px;
-    padding-top: 20px;
-    text-align: left;
-}
-
-form * {
-    width: 100%;
-}
-
-
-form span {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-
-
-form span select{
-    width: 90%
-}
-form span label + input {
-    width: 100%;
-}
-
-form input{
-    height: 2em;
-    margin-top: 15px;
-    padding-left: 12px;
-    margin-bottom: 20px;
-}
-form label {
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-select {
-    margin-top: 15px;
-    margin-bottom: 20px;
-    height: 2.2em;
-    padding-left: 12px;
-}
-
-input, select
-{
-    font-size:1.75em;
-}
-input[type="submit"]{
-    background-color: #1492E6;
-    color: white;
-    border-radius: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: buttonface;
-}
-
-input[type="submit"]:hover{
-    background-color: #1182cc;
-}
-
-input:focus{
-}
-
-/* Flights Container */
+/* */
+/* Flights */
 #flights-container {
     text-align: center;
-    margin-left: 280px;
-    margin-right: 280px;
     background-color: #ffffff;
-    border-radius: 25px;
-    position: absolute;
-    top: 500px;
-    left: 0;
-
-    box-shadow: 0px 0px 1px 1px #bbbbbb inset;
-    
-  }
+}
 
 #flights-container h2 {
     display: inline-block;
 }
 
 .flight-item {
-    width: 1200px;
-    display: flex;
     align-items: center;
-    margin: 20px 80px 20px 80px;
     box-shadow: 0px 3px 6px 1px #bbbbbb;
 }
 
 .flight-item h3 {
-   font-size: 2.2em;
-   margin: 0px
+    font-size: 1.3em;
+    margin: 0px
 }
 
-.flight-item h3 + p {
+.flight-item h3+p {
     margin: 0px
- }
- 
+}
 
 .flight-item span {
     display: inline-block;
     padding: 20px;
 }
-
-.flight-item span:nth-last-of-type(2) {
-    padding-left: 40px;
-  }
 
 .flight-item span:last-of-type {
     margin-left: auto;
@@ -174,12 +72,307 @@ input:focus{
 .flight-status {
     display: flex;
     align-items: top;
-    margin-top: 10px;
- 
 }
 
 .flight-status p {
     margin-top: 0px;
-    padding-right: 10px;
-    margin-left: auto;
+    padding-right: 5px;
+}
+
+
+.booking {
+    text-align: center;
+    padding-bottom: 100px;
+}
+
+.form .booking span input{
+ 
+    width: 15em;
+
+}
+    .booking span {
+        display: inline-block;
+    }
+
+    .booking label {
+        display: block;
+        text-align: left;
+    }
+
+
+.booking-details div {
+    display: inline-block;
+}
+
+
+.form form img {
+    width: auto;
+}
+.form form label {
+    display: inline;
+}
+.form form div p {
+    color: red;
+    margin-top: 0;
+
+}
+
+
+/* */
+
+
+ /* Form Mobile */
+@media only screen and (max-width: 1400px) {
+
+    .form {
+        text-align: center;
+        margin: auto;
+    }
+    .form h1 {
+        font-size: 3em;
+    }
+    .form form {
+        padding-top: 20px;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    .form div *{
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+    .form span {
+        align-items: center;
+    }
+    .form span input {
+        width: 1.6em;
+    }
+    .form input {
+        height: 2em;
+        margin-top: 15px;
+        padding-left: 12px;
+        margin-bottom: 20px;
+    }
+    .form label {
+        font-weight: bold;
+        font-size: 1.4em;
+    }
+    .form select {
+        margin-top: 15px;
+        margin-bottom: 20px;
+        height: 2.2em;
+        padding-left: 12px;
+    }
+    .form input, select {
+        font-size: 1.2em;
+    }
+    .form input[type="submit"] {
+        background-color: #1492E6;
+      width: 50%;
+        font-weight: bold;
+        color: white;
+        border-radius: 10px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: buttonface;
+        height: 4em;
+    }
+    .form input[type="submit"]:hover {
+        background-color: #1182cc;
+    }
+    .form p:last-of-type{
+        text-align: center;
+    }
+    
+    .form a {
+        color: #0077FF;
+    }
+}
+
+ /* Form Desktop */
+@media only screen and (min-width: 1401px) {
+
+ .form {
+    text-align: center;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+.form h1 {
+    font-size: 3em;
+}
+.form form {
+    margin-left: 300px;
+    margin-right: 300px;
+    padding-top: 20px;
+    text-align: left;
+    padding-bottom: 50px;
+}
+.form form * {
+    width: 100%;
+}
+
+.invalid {
+    border-color: red;
+}
+
+
+.form form span {
+    display: flex;
+    align-items: center;
+}
+.form form span input {
+    width: 1.6em;
+    margin-top: 30px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    margin-left: 0px;
+}
+.form input {
+    height: 2em;
+    margin-top: 15px;
+    padding-left: 12px;
+    margin-bottom: 20px;
+}
+.form label {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+.form select {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height: 2.2em;
+    padding-left: 12px;
+}
+.form input, select {
+    font-size: 1.2em;
+}
+.form input[type="submit"] {
+    background-color: #1492E6;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: buttonface;
+    height: 4em;
+}
+.form input[type="submit"]:hover {
+    background-color: #1182cc;
+}
+.form p:last-of-type{
+    text-align: center;
+}
+
+.form a {
+    color: #0077FF;
+}
+}
+
+
+/* Desktop */
+@media only screen and (min-width: 900px) {
+
+    .heading {
+        text-align: center;
+        font-size: 3em;
+    }
+    /* Nav Bar  */
+    header a {
+        padding: 20px;
+        font-size: 1.5em;
+        text-decoration: none;
+        color: black;
+        margin: 0px;
+    }
+    header a:last-of-type{
+        padding-right: 0px;
+    }
+
+    header a:hover {
+        color: orange;
+        text-decoration: underline;
+        text-decoration-color: orange;
+        transition: 0.1s;
+    }
+    header h1 {
+        text-align: left;
+        display: inline;
+        padding-right: 0px;
+    }
+    header {
+        box-sizing: border-box;
+        padding: 10px 275px 10px 275px;
+        text-align: right;
+        box-shadow: 0 4px 2px -2px gray;
+        width: 100%;
+    }
+    /* */
+    /* Banner Image*/
+    #banner-image {
+        text-align: center;
+        display: block;
+        left: 0;
+        padding-top: 75px;
+        width: 100%;
+    }
+    #banner-image img {
+        width: 100%;
+    }
+    /* */
+
+   
+    /* */
+    /* Flights */
+    #flights-container {
+        text-align: center;
+        margin-left: 280px;
+        margin-right: 280px;
+        background-color: #ffffff;
+        border-radius: 25px;
+        box-shadow: 0px 0px 1px 1px #bbbbbb inset;
+        padding-bottom: 50px;
+    }
+    #flights-container h2 {
+        display: inline-block;
+    }
+    .flight-item {
+        align-items: center;
+        text-align: center;
+        margin: 20px 80px 20px 80px;
+        box-shadow: 0px 3px 6px 1px #bbbbbb;
+    }
+    .flight-item h3 {
+        font-size: 2.2em;
+        margin: 0px
+    }
+    .flight-item h3+p {
+        margin: 0px
+    }
+    .flight-item span {
+        display: inline-block;
+        padding: 20px;
+    }
+    .flight-item span:nth-last-of-type(2) {
+        padding-left: 40px;
+    }
+    .flight-item span:last-of-type {
+        margin-left: auto;
+    }
+    .flight-status {
+        display: flex;
+        align-items: top;
+        margin-top: 10px;
+    }
+    .flight-status p {
+        margin-top: 0px;
+        padding-right: 10px;
+        margin-left: auto;
+    }
+
+    .flight-date {
+        text-align: left;
+    }
+
+    /* */
+
 }
