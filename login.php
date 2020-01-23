@@ -79,7 +79,7 @@
                 </div>
 
                 <div>
-                    <p>Not a member yet? <a>Create account</a></p>
+                    <p>Not a member yet? <a href="register.php">Create account</a></p>
                 </div>
 
 

@@ -32,7 +32,7 @@
         <meta name="author" content="Stephen Byatt">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Stephen Airlines</title>
-        <title>Stephen Airlines</title>
+        <script type="text/javascript" src="action.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -74,49 +74,55 @@
                 and offers all in one place.</p>
 
 
-            <form id="register" method="post" action="register.php">
+            <form id="register" method="post" action="register.php" onsubmit="return validateForm(this)">
                 
                     <div>
                         <label for="fname">First Name <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                        <input class="invalid" type="text" id="fname" name="fname" placeholder="" onblur="">
-                        <p>First name requires a capital letter</p>
+                        <input type="text" id="fname" name="fname" placeholder="" onblur="isElementValid(this)">
+                        <p>First name </p>
+                        <p>requires a capital letter</p>
                     </div>
     
                     <div>
                         <label for="lname">Last Name <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                        <input type="text" id="lname" name="lname" placeholder="" onblur="">
-                        <p>Last name requires a capital letter</p>
+                        <input type="text" id="lname" name="lname" placeholder="" onblur="isElementValid(this)">
+                        <p>Last name </p>
+                        <p>requires a capital letter</p>
                     </div>
                 
 
                 <div>
                     <label for="email">Email <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                    <input type="text" id="email" name="email" placeholder="Eg. john.smith@email.com" onblur="">
-                    <p>Email is invalid</p>
+                    <input type="text" id="email" name="email" placeholder="Eg. john.smith@email.com" onblur="isElementValid(this)">
+                    <p>Email </p>
+                    <p>is invalid</p>
                 </div>
 
                 <div>
                     <label for="phone">Phone Number <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                    <input type="text" id="phone" name="phone" placeholder="" onblur="">
-                    <p>Phone number is invalid</p>
+                    <input type="text" id="phone" name="phone" placeholder="" onblur="isElementValid(this)">
+                    <p>Phone number </p>
+                    <p>iis invalid</p>
                 </div>
 
 
                 <div>
                     <label for="address">Address <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                    <input type="text" id="address" name="address" placeholder="" onblur="">
-                    <p>Address is required</p>
+                    <input type="text" id="address" name="address" placeholder="" onblur="isElementValid(this)">
+                    <p>Address </p>
+                    <p>is invalid</p>
                 </div>
 
                 <div>
                     <label for="suburb">Suburb <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                    <input type="text" id="suburb" name="suburb" placeholder="" onblur="">
-                    <p>Suburb is required</p>
+                    <input type="text" id="suburb" name="suburb" placeholder="" onblur="isElementValid(this)">
+                    <p>Subrub </p>
+                    <p>is invalid</p>
                 </div>
                
                     <div>
                         <label for="state">State <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                        <select name="state" id="state" onblur="">
+                        <select name="state" id="state" onblur="isElementValid(this)">
                             <option value="" selected="" disabled="">Select State</option>
                             <option value="NSW">NSW</option>
                             <option value="ACT">ACT</option>
@@ -127,27 +133,31 @@
                             <option value="NT">NT</option>
                             <option value="TAS">TAS</option>
                         </select>
-                        <p>State is required</p>
+                        <p>State </p>
+                        <p>is invalid</p>
                     </div>
                   
     
                     <div>
                         <label for="postcode">Post Code <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                        <input type="text" id="postcode" name="postcode" placeholder="" onblur="">
-                        <p>Postcode is invalid</p>
+                        <input type="text" id="postcode" name="postcode" placeholder="" onblur="isElementValid(this)">
+                        <p>Postcode </p>
+                        <p>is invalid</p>
                     </div>                                    
                 
                
                 <div>
                     <label for="password">Password <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                    <input type="password" id="password" name="password" placeholder="" onblur="">
-                    <p>Password must be at least 8 characters and have at least one number</p>
+                    <input type="password" id="password" name="password" placeholder="" onblur="isElementValid(this)">
+                    <p>Password </p>
+                    <p>must be at least 8 characters and have at least one number</p>
                 </div>
 
                 <div>
                     <label for="confpassword">Confirm Password <img id="fnameEicon" src="error.png" width="20" height="20"></label>
-                    <input type="password" id="confpassword" name="confpassword" placeholder="" onblur="">
-                    <p>Passwords do not match</p>
+                    <input type="password" id="confpassword" name="confpassword" placeholder="" onblur="isElementValid(this)">
+                    <p>Password </p>
+                    <p>is invalid</p>
                 </div>
 
                 <div>
@@ -163,7 +173,7 @@
                 </div>
 
                 <div>
-                    <p>Already have an account? <a>Log in</a></p>
+                    <p>Already have an account? <a href="login.php">Log in</a></p>
                 </div>
 
 
@@ -277,7 +287,6 @@ function validateForm($form){
         if(!$valid)
         {
             $formvalid = $valid;
-            showError($key);
         }
     }
 
@@ -323,12 +332,6 @@ function validateForm($form){
     }
 
 
-    function showError($key){
-        echo "<script>
-        document.getElementById('$key').class = 'invalid';
-        </script>";       
-
-    }
 
 
 ?>
