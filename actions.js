@@ -86,6 +86,9 @@ function isElementValid(element){
 
 
         case "password":
+            if(/login\.php/.test(window.location.href))
+                break;
+
             regex = /^(?=.*?[0-9]).{8,}$/;
             if(!regex.test(element.value)){
                 errorMessage = " must be at least 8 characters and have at least one number";
@@ -95,7 +98,7 @@ function isElementValid(element){
 
 
         case "confpassword":
-            if(!element.value.length || element.value != form.password){
+            if(!element.value.length || element.value != document.getElementById("password").value){
                     valid = false;
                     errorMessage = " does not match";
             }
