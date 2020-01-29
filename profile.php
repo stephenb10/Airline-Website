@@ -6,6 +6,8 @@
 
    $isadmin = false;
 
+   $passwordIncorrect = false;
+
 
     $connection = new mysqli('localhost', 'twa032', 'twa032xf', 'cooper_flights032');
     if($connection->connect_error) {
@@ -48,6 +50,7 @@
         <title>Stephen Airlines</title>
         <script type="text/javascript" src="action.js"></script>
 
+     
         <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
 
@@ -60,24 +63,24 @@
             <h1>Stephen Airlines</h1>
             <nav>
 
-            <a href="index.php">Home</a>
+<a href="index.php">Home</a>
 
-            <?php if($user != null) : ?>
-            <a href="profile.php">My Profile</a>
-            <a href="newbooking.php">New Booking</a>
-            <a href="bookings.php">Bookings</a>
+<?php if($user != null) : ?>
+<a href="profile.php">My Profile</a>
+<a href="newbooking.php">New Booking</a>
+<a href="bookings.php">Bookings</a>
 
-            <?php if($isadmin) :?> 
-            <a href="flights.php">Flights</a>
-            <?php endif ?>
+<?php if($user['admin']) :?> 
+<a href="flights.php">Flights</a>
+<?php endif ?>
 
-            <a href="logout.php">Logout</a>
+<a href="logoff.php">Logout</a>
 
-            <?php else: ?>
-            <a href="register.php">Register</a>
-            <a href="login.php">Login</a>
-            <?php endif ?>
-        </nav>
+<?php else: ?>
+<a href="register.php">Register</a>
+<a href="login.php">Login</a>
+<?php endif ?>
+</nav>
 
            
         </header>
@@ -159,27 +162,32 @@
                     </div>                                    
                 
                
-                <div>
-                    <label for="password">Password <img  src="error.png" width="20" height="20"></label>
-                    <input type="password" id="password" name="password" placeholder="" onblur="isElementValid(this)">
-                    <p>Password </p>
-                    <p>must be at least 8 characters and have at least one number</p>
-                </div>
-
-                <div>
-                    <label for="confpassword">Confirm Password <img src="error.png" width="20" height="20"></label>
-                    <input type="password" id="confpassword" name="confpassword" placeholder="" onblur="isElementValid(this)">
-                    <p>Password </p>
-                    <p>is invalid</p>
-                </div>
-
-                <div>
+                    <div>
                     <span>
                         <input type="checkbox" value="true" name="admin" id="admin" onclick="">
                         <label for="admin">This account is an administator.</label>
                     </span>
                 </div>
                
+
+                <div>
+                    <label for="password">Enter Password <img  src="error.png" width="20" height="20"></label>
+                    <input type="password" id="password" name="password" placeholder="" onblur="isElementValid(this)">
+                    <p>Password </p>
+                    <p>must be at least 8 characters and have at least one number</p>
+                </div>
+
+                
+               <?php if($passwordIncorrect) : ?>
+
+                <div>
+                    <h3>
+                    Password is incorrect
+                    </h3>
+                </div>
+
+               <?php endif; ?>
+
 
                 <div>
                     <input type="submit" name="submit" id="submit" value="Update Details">
@@ -275,22 +283,6 @@ function validateForm($form){
                     echo "<p> $key : $value not valid </p>";
                 }
             break;
-
-            case "password":
-                if(!preg_match('/^(?=.*?[0-9]).{8,}$/', $value)){
-                    $valid = false;
-                    echo "<p> $key : $value not valid </p>";
-                }
-
-            break;
-
-
-            case "confPassword":
-                if($value != $form['$password']){
-                    $valid = false;
-                    echo "<p> $key : $value not valid </p>";
-                }
-            break;
         }
 
 
@@ -311,6 +303,19 @@ function validateForm($form){
 
         global $connection;
         global $user;
+        global $passwordIncorrect;
+
+
+
+        $password = hash('sha256', $connection->real_escape_string($form['password']));
+        $id = $user['id'];
+
+        if($password != $user['password']){
+            $passwordIncorrect = true;
+            return;
+        }
+
+
         $first = $connection->real_escape_string($form['fname']);
         $last = $connection->real_escape_string($form['lname']);
         $email = $connection->real_escape_string($form['email']);
@@ -319,14 +324,15 @@ function validateForm($form){
         $state = $connection->real_escape_string($form['state']);
         $postcode = $connection->real_escape_string($form['postcode']);
         $phone = $connection->real_escape_string($form['phone']);
-        $password = hash('sha256', $connection->real_escape_string($form['password']));
+        
         $admin = isset($form['admin']) ? 1 : 0;
         
-        $id = $user['id'];
+      
 
-        $query = "UPDATE customer set fname='$first', lname='$last', email='$email', password='$password', address='$address', suburb='$suburb', state='$state', postcode=$postcode, phone='$phone', admin=$admin ";
+
+
+        $query = "UPDATE customer set fname='$first', lname='$last', email='$email', address='$address', suburb='$suburb', state='$state', postcode=$postcode, phone='$phone', admin=$admin ";
         $query = $query . "WHERE id=$id";
-
 
         echo $query;
 
