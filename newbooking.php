@@ -15,7 +15,6 @@
     $from = "";
     $to = "";
     $depart = "";
-    $pass = "";
 
 
     if(isset($_SESSION["userid"])){
@@ -30,15 +29,15 @@
         Header("Location: Login.php");
     }
 
+
     if(isset($_GET['submit'])){
         $from = $_GET['from'];
         $to = $_GET['to'];
         $depart = $_GET['depart'];
-        $pass = $_GET['passengers'];
         validateForm($_GET);
     }
 
-  
+
  
 
    $query = "SELECT DISTINCT from_airport, to_airport FROM flight";
@@ -48,19 +47,20 @@
     $fromFlights = Array();
     $toFlights = Array();
     while($flight = $result->fetch_assoc()){
-        $from = $flight['from_airport'];
-        $to = $flight['to_airport'];
-        if(!in_array($from, $fromFlights)){
-            $fromFlights[] = $from;
+        $f = $flight['from_airport'];
+        $t = $flight['to_airport'];
+        if(!in_array($f, $fromFlights)){
+            $fromFlights[] = $f;
         }
 
-        if(!in_array($to, $toFlights)) {
-            $toFlights[] = $to;
+        if(!in_array($t, $toFlights)) {
+            $toFlights[] = $t;
         }
     }
 
     $fromFlights = json_encode($fromFlights);
     $toFlights = json_encode($toFlights);
+
     
 
 ?>
@@ -117,7 +117,7 @@
                 <h1 class="heading">Book a flight</h1>
 
 
-                <form class="booking" autocomplete="off"  onsubmit="return validateForm(this)">
+                <form class="booking" autocomplete="off" >
                     <div>
                         <span class="autocomplete">
                             <label>From <img src="error.png" width="20" height="20"></label>
@@ -134,20 +134,12 @@
                     </div>
                     <div>
                         <span>
-                            <label>Depart <img src="error.png" width="20" height="20"></label>
-                            <input type="date" id="depart" name="depart" placeholder="" onblur="" value="<?=$depart?>">
-                            <p>This field </p>
-                            <p>is required</p>
-                        </span>
-                        <span>
-                            <label>Passengers <img src="error.png" width="20" height="20"></label>
-                            <input type="number" min=1 max=1 id="passengers" name="passengers" placeholder="" onblur="" value="<?=$pass?>">
-                            <p>This field </p>
-                            <p>is required</p>
+                            <label>Earliest Departure <img src="error.png" width="20" height="20"></label>
+                            <input type="date" id="depart" name="depart" placeholder="" onblur="" value="<?=$depart?>" required>
                         </span>
                     </div>
 
-                    <div>
+                    <div style="padding-top: 20px;">
             
                     <input type="submit" name="submit" id="submit" value="Search">
              
@@ -201,7 +193,6 @@
 <?php
 function displayFlight($flight){
     global $connection;
-    global $pass;
     $planeid = $flight['plane'];
     $query = "SELECT * FROM plane WHERE id='$planeid'";
 
@@ -239,7 +230,6 @@ function displayFlight($flight){
     $numrows = mysqli_num_rows($result);
     $maxSeats = $i['seating'];
     $seats = $maxSeats - $numrows;
-    echo "max $maxSeats,  bookings $numrows,  seats left $seats";
     
 
     echo "<div class='flight-item'>
@@ -264,9 +254,13 @@ function displayFlight($flight){
       </span>
 
        <span>
-        <h2>$seats Seats left</h2>
-        <a style='display: inline;' href='completebooking.php?flightid=$flightid'> <h2>Book now</h2> </a>
-       </span>
+        <h2>";
+        if($seats > 0)
+            echo "$seats Seats left </h2>
+            <a style='display: inline;' href='completebooking.php?flightid=$flightid'> <h2>Book now</h2> </a>";
+        else
+            echo "Full </h2>";
+        echo "</span>
 
 </div>";
 
@@ -286,16 +280,14 @@ function validateForm($form){
     $date = $connection->real_escape_string(trim(urldecode($form['depart'])));
     $from = $connection->real_escape_string(trim(urldecode($form['from'])));
     $to = $connection->real_escape_string(trim(urldecode($form['to'])));
-    $passengers = $connection->real_escape_string(trim(urldecode($form['passengers'])));
 
 
     $query = "SELECT * FROM flight ";
-    $query .= "WHERE CAST(flight_datetime as date) = '$date'" ;
+    $query .= "WHERE CAST(flight_datetime as date) > '$date'" ;
     if(!empty($from))
         $query .= "AND from_airport = '$from' ";
     if(!empty($to))
         $query .= "AND to_airport = '$to' ";
-    echo $query;
 
 
     if(!$result = $connection->query($query)){
@@ -319,5 +311,9 @@ function validateForm($form){
 
 }
 
+
+
+
+$connection->close();
 
 ?>

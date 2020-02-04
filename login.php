@@ -136,6 +136,7 @@ function authenticate($form) {
 }
 
 
+$connection->close();
 
 
 ?>

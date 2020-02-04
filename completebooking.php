@@ -22,9 +22,15 @@
         Header("Location: Login.php");
     }
 
+    if(isset($_POST['submit'])){
+        bookFlight();
+    }
+
     if(!isset($_GET['flightid'])){
         Header("Location: newbooking.php");
     }
+
+   
 
    
 
@@ -91,7 +97,7 @@
         
 
 
-        <form class="booking" onsubmit="return validateForm(this)">
+        <form class="booking" onsubmit="return validateForm(this)" method="post">
 
             <div>
                 <label for="fname">Name on Card <img src="error.png" width="20" height="20"></label>
@@ -183,5 +189,32 @@ echo    "<h2>Flight $flight_number</h2>
                 <p>$455</p>
             </div>";
 }
+
+
+
+
+function bookFlight(){
+    global $connection;
+    global $user;
+    $fid = $_GET['flightid'];
+    $uid = $user['id'];
+    $date = date("Y-m-d h:i:s");
+
+
+    $query = "INSERT INTO booking (flight_id, customer_id, booking_datetime) ";
+    $query .= "VALUES ($fid, $uid, '$date')";
+
+    echo $query;
+
+    if($connection->query($query) == TRUE){
+        header("Location: bookings.php");
+    } else {
+        die('<p>Query Statement Error: ' . $connection->error) . "</p>";
+    }
+
+}
+
+$connection->close();
+
 
 ?>

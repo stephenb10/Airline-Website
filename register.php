@@ -331,7 +331,7 @@ function validateForm($form){
 
     }
 
-
+$connection->close();
 
 
 ?>

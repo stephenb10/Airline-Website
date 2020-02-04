@@ -164,7 +164,7 @@
                
                     <div>
                     <span>
-                        <input type="checkbox" value="true" name="admin" id="admin" onclick="">
+                        <input type="checkbox" value="true" name="admin" id="admin" onclick="" <?php if($user['admin'] == 1) echo "checked";?>>
                         <label for="admin">This account is an administator.</label>
                     </span>
                 </div>
@@ -211,7 +211,6 @@ function validateForm($form){
 
     $formvalid = true;
 
-    echo "validating";
 
      if(!isset($form['state'])){
             $formvalid = false;
@@ -292,7 +291,6 @@ function validateForm($form){
         }
     }
 
-    echo $formvalid ? 'true' : 'false';
 
     return $formvalid;
 
@@ -334,8 +332,7 @@ function validateForm($form){
         $query = "UPDATE customer set fname='$first', lname='$last', email='$email', address='$address', suburb='$suburb', state='$state', postcode=$postcode, phone='$phone', admin=$admin ";
         $query = $query . "WHERE id=$id";
 
-        echo $query;
-
+       
         if($connection->query($query) == FALSE){
             die('<p>Query Statement Error: ' . $connection->error) . "</p>";
         }
@@ -349,7 +346,7 @@ function validateForm($form){
 
     }
 
-
+    $connection->close();
 
 
 ?>

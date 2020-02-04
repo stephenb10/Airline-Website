@@ -13,14 +13,12 @@
     $isadmin = false;
  
     if(isset($_SESSION["userid"])){
-        echo "session user id was set";
         $id = $_SESSION["userid"];
         $query = "SELECT * FROM customer WHERE id = $id";
         if(!$result = $connection->query($query)){
             die('Query Statement Error' . $connection->error);
         }
         $user = $result->fetch_assoc();
-        echo var_dump($user);
     }
  
 
@@ -172,5 +170,7 @@ function displayFlight($flight){
 </div>";
 }
 
+
+$connection->close();
 
 ?>
