@@ -283,11 +283,11 @@ header a {
         text-align: left;
         padding-bottom: 50px;
     }
-    .form form span {
+    .form form .hori-layout {
         display: flex;
         align-items: center;
     }
-    .form form span input {
+    .form form .hori-layout input {
         width: 1.6em;
         margin-top: 30px;
         margin-right: 50px;
