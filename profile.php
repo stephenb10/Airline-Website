@@ -93,14 +93,14 @@
             <form id="update" method="post" action="profile.php" onsubmit="return validateForm(this)">
 
             <div>
-                        <label for="fname">First Name <img src="error.png" width="20" height="20"></label>
+                        <label for="fname">First Name <img alt='error' src="error.png" width="20" height="20"></label>
                         <input type="text" id="fname" name="fname" placeholder="" onblur="isElementValid(this)" value="<?php echo $user['fname']?>">
                         <p>First name </p>
                         <p>requires a capital letter</p>
                     </div>
     
                     <div>
-                        <label for="lname">Last Name <img src="error.png" width="20" height="20"></label>
+                        <label for="lname">Last Name <img alt='error' src="error.png" width="20" height="20"></label>
                         <input type="text" id="lname" name="lname" placeholder="" onblur="isElementValid(this)" value="<?php echo $user['lname']?>">
                         <p>Last name </p>
                         <p>requires a capital letter</p>
@@ -108,14 +108,14 @@
                 
 
                 <div>
-                    <label for="email">Email <img  src="error.png" width="20" height="20"></label>
+                    <label for="email">Email <img alt='error' src="error.png" width="20" height="20"></label>
                     <input type="text" id="email" name="email" placeholder="Eg. john.smith@email.com" onblur="isElementValid(this)" value="<?php echo $user['email']?>">
                     <p>Email </p>
                     <p>is invalid</p>
                 </div>
 
                 <div>
-                    <label for="phone">Phone Number <img  src="error.png" width="20" height="20"></label>
+                    <label for="phone">Phone Number <img  alt='error' src="error.png" width="20" height="20"></label>
                     <input type="text" id="phone" name="phone" placeholder="" onblur="isElementValid(this)" value="<?php echo $user['phone']?>">
                     <p>Phone number </p>
                     <p>iis invalid</p>
@@ -123,23 +123,23 @@
 
 
                 <div>
-                    <label for="address">Address <img  src="error.png" width="20" height="20"></label>
+                    <label for="address">Address <img alt='error' src="error.png" width="20" height="20"></label>
                     <input type="text" id="address" name="address" placeholder="" onblur="isElementValid(this)" value="<?php echo $user['address']?>">
                     <p>Address </p>
                     <p>is invalid</p>
                 </div>
 
                 <div>
-                    <label for="suburb">Suburb <img  src="error.png" width="20" height="20"></label>
+                    <label for="suburb">Suburb <img alt='error' src="error.png" width="20" height="20"></label>
                     <input type="text" id="suburb" name="suburb" placeholder="" onblur="isElementValid(this)" value="<?php echo $user['suburb']?>">
                     <p>Subrub </p>
                     <p>is invalid</p>
                 </div>
                
                     <div>
-                        <label for="state">State <img  src="error.png" width="20" height="20"></label>
+                        <label for="state">State <img alt='error' src="error.png" width="20" height="20"></label>
                         <select name="state" id="state" onblur="isElementValid(this)">
-                            <option <?=$user['state'] == '' ? ' selected="selected"' : '';?> value="" selected="" disabled="">Select State</option>
+                            <option <?=$user['state'] == '' ? ' selected="selected"' : '';?> value="" disabled="">Select State</option>
                             <option <?=$user['state'] == 'NSW' ? ' selected="selected"' : '';?> value="NSW">NSW</option>
                             <option <?=$user['state'] == 'ACT' ? ' selected="selected"' : '';?> value="ACT">ACT</option>
                             <option <?=$user['state'] == 'QLD' ? ' selected="selected"' : '';?> value="QLD">QLD</option>
@@ -155,7 +155,7 @@
                   
     
                     <div>
-                        <label for="postcode">Post Code <img  src="error.png" width="20" height="20"></label>
+                        <label for="postcode">Post Code <img alt='error' src="error.png" width="20" height="20"></label>
                         <input type="text" id="postcode" name="postcode" placeholder="" onblur="isElementValid(this)" value="<?php echo $user['postcode']?>">
                         <p>Postcode </p>
                         <p>is invalid</p>
@@ -171,7 +171,7 @@
                
 
                 <div>
-                    <label for="password">Enter Password <img  src="error.png" width="20" height="20"></label>
+                    <label for="password">Enter Password <img alt='error' src="error.png" width="20" height="20"></label>
                     <input type="password" id="password" name="password" placeholder="" onblur="isElementValid(this)">
                     <p>Password </p>
                     <p>must be at least 8 characters and have at least one number</p>

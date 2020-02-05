@@ -106,6 +106,7 @@
                    ?>
                 </div>
         </div>
+                </div>
        
         
     </body>
@@ -147,31 +148,31 @@ function displayFlight($flight){
     echo "<div class='flight-item'>
 
     <h3>$day</h3>
-    <span>
+    <div class='info-container'>
         <h3>$depart_time</h3>
         <p>$from</p>
-    </span>
-    <span>
-        <img src='plane.png' width='40' height='40'>
-    </span>
-   <span>
+    </div>
+    <div class='info-container'>
+        <img src='plane.png' width='40' height='40' alt='flight to'>
+    </div>
+   <div class='info-container'>
     <h3>$arrival_time</h3>
     <p>$to</p>
-   </span>
+   </div>
 
-   <span>
+   <div class='info-container'>
     <p>$hours Hour Flight ($distance)</p>
     <p>$plane</p>
-   </span>
+   </div>
 
-   <span>
+   <div class='info-container'>
     <h3>$flight_number</h3>
     <div class='flight-status'>
         <p>$status</p>
-        <img src='$status_image' width='20' height='20'>
+        <img src='$status_image' width='20' height='20' alt='status'>
     </div>
     
-   </span>";
+   </div>";
 
 
    $d = new DateTime(date("Y-m-d h:i:s"));
@@ -182,13 +183,13 @@ function displayFlight($flight){
        $hours = $hours + ($diff->days*24);
     if(($hours > 48 && $c > $d) && $flight['status'] != "Cancelled") {
     $flightid = $flight['id'];
-   echo "<span>
+   echo "<div class='info-container'>
    <a style='color: red;' href='flights.php?cancel=$flightid'><div class='flight-status'>
        <p>Cancel</p>
-       <img src='cancel.png' width='20' height='20'>
+       <img src='cancel.png' width='20' height='20' alt='cancel'>
    </div></a>
    
-  </span>";
+  </div>";
     }
 
 

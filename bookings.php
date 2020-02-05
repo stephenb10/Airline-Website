@@ -167,25 +167,25 @@ function displayBooking($booking){
     
 
     echo " <div class='flight-item'>
-    <span>
+    <div class='info-container'>
         <h3>$day</h3>
         <p>Booked: $bookedday</p>
-    </span>
-        <span>
+    </div>
+        <div class='info-container'>
             <h3>$depart_time</h3>
             <p>$from</p>
-        </span>
-        <span>
-        <img src='plane.png' width='40' height='40'>
-    </span>
-    <span>
+        </div>
+        <div class='info-container'>
+        <img src='plane.png' width='40' height='40' alt='flight to'>
+    </div>
+    <div class='info-container'>
         <h3>$arrival_time</h3>
         <p>$to</p>
-   </span>
-   <span>
+   </div>
+   <div class='info-container'>
     <p>$hours Hour Flight ($distance)</p>
     <p>$plane</p>
-  </span>";
+  </div>";
 
   if(!$booking['checkedin']){
     
@@ -199,15 +199,15 @@ function displayBooking($booking){
 
         $bid = $booking['id'];
         if($hours <= 48) {
-        echo "<span>
+        echo "<div class='info-container'>
             <a style='display: inline;' href='checkin.php?bookingid=$bid'> <h2>Checkin</h2> </a>
-        </span>";
+        </div>";
     }
 }
 else {
-    echo "<span>
+    echo "<div class='info-container'>
     <h2>Checkedin</h2>
-    </span>";
+    </div>";
 }
 
         

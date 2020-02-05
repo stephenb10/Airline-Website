@@ -76,7 +76,7 @@
 
         <div>
             <div id="banner-image">
-                <img src="https://picsum.photos/1920/500" width="1920" height="500">
+                <img src="https://picsum.photos/1920/500" width="1920" height="500" alt='banner image'>
             </div>
     
             <div id="flights-container">
@@ -98,6 +98,7 @@
                     }
                    ?>
                 </div>
+            </div>
         </div>
        
         
@@ -140,31 +141,31 @@ function displayFlight($flight){
     echo "<div class='flight-item'>
 
     <h3>$day</h3>
-    <span>
+    <div class='info-container'>
         <h3>$depart_time</h3>
         <p>$from</p>
-    </span>
-    <span>
-        <img src='plane.png' width='40' height='40'>
-    </span>
-   <span>
+    </div>
+    <div class='info-container'>
+        <img src='plane.png' width='40' height='40' alt='flight to'>
+    </div>
+   <div class='info-container'>
     <h3>$arrival_time</h3>
     <p>$to</p>
-   </span>
+   </div>
 
-   <span>
+   <div class='info-container'>
     <p>$hours Hour Flight ($distance)</p>
     <p>$plane</p>
-   </span>
+   </div>
 
-   <span>
+   <div class='info-container'>
     <h3>$flight_number</h3>
     <div class='flight-status'>
         <p>$status</p>
-        <img src='$status_image' width='20' height='20'>
+        <img src='$status_image' width='20' height='20' alt = 'status'>
     </div>
     
-   </span>
+   </div>
 
 
 </div>";

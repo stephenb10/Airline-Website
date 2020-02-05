@@ -119,27 +119,27 @@
 
                 <form class="booking" autocomplete="off" >
                     <div>
-                        <span class="autocomplete">
-                            <label>From <img src="error.png" width="20" height="20"></label>
+                        <div class="autocomplete">
+                            <label>From <img src="error.png" alt='error' width="20" height="20"></label>
                             <input class="auto" type="text" id="from" name="from" placeholder="" onblur="" value="<?=$from?>">
                             <p>This field </p>
                             <p>is required</p>
-                        </span>
-                        <span class="autocomplete">
-                            <label>To <img src="error.png" width="20" height="20"></label>
+                        </div>
+                        <div  class="autocomplete">
+                            <label>To <img src="error.png" alt='error' width="20" height="20"></label>
                             <input class="auto" type="text" id="to" name="to" placeholder="" onblur="" value="<?=$to?>">
                             <p>This field </p>
                             <p>is required</p>
-                        </span>
+                        </div>
                     </div>
                     <div>
-                        <span>
-                            <label>Earliest Departure <img src="error.png" width="20" height="20"></label>
-                            <input type="date" id="depart" name="depart" placeholder="" onblur="" value="<?=$depart?>" required>
-                        </span>
+                        <div  class='booking-input'>
+                            <label>Earliest Departure <img src="error.png" alt='error' width="20" height="20"></label>
+                            <input type="date" id="depart" name="depart" onblur="" value="<?=$depart?>" required>
+                        </div>
                     </div>
 
-                    <div style="padding-top: 20px;">
+                    <div  class='booking-input' style="padding-top: 20px;">
             
                     <input type="submit" name="submit" id="submit" value="Search">
              
@@ -234,33 +234,33 @@ function displayFlight($flight){
 
     echo "<div class='flight-item'>
     <h3>$day</h3>
-    <span>
+    <div class='info-container'>
     <h3>$flight_number</h3>
-    </span>
-    <span>
+    </div>
+    <div class='info-container'>
         <h3>$depart_time</h3>
         <p>$from</p>
-    </span>
-        <span>
-            <img src='plane.png' width='40' height='40'>
-        </span>
-        <span>
+    </div>
+        <div class='info-container'>
+            <img src='plane.png' width='40' height='40' alt='flight-to'>
+        </div>
+        <div class='info-container'>
         <h3>$arrival_time</h3>
         <p>$to</p>
-       </span>
-       <span>
+       </div>
+       <div class='info-container'>
        <p>$hours Hour Flight ($distance)</p>
        <p>$plane</p>
-      </span>
+      </div>
 
-       <span>
+       <div class='info-container'>
         <h2>";
         if($seats > 0)
             echo "$seats Seats left </h2>
             <a style='display: inline;' href='completebooking.php?flightid=$flightid'> <h2>Book now</h2> </a>";
         else
             echo "Full </h2>";
-        echo "</span>
+        echo "</div>
 
 </div>";
 

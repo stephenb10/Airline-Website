@@ -114,12 +114,12 @@ header a {
     margin: 0px
 }
 
-.flight-item span {
+.info-container {
     display: inline-block;
     padding: 20px;
 }
 
-.flight-item span:last-of-type {
+.info-container:last-of-type {
     margin-left: auto;
 }
 
@@ -149,11 +149,8 @@ header a {
 
 }
 
-.form .booking span input {
-    width: 15em;
-}
 
-.booking span {
+.booking-input {
     display: inline-block;
 }
 
@@ -260,10 +257,10 @@ header a {
         text-align: center;
         margin: auto;
     }
-    .form span {
+    .form .hori-layout {
         align-items: center;
     }
-    .form span input {
+    .form .hori-layout input {
         width: 1.6em;
     }
     .form input[type="submit"] {
@@ -360,7 +357,7 @@ header a {
         margin: 20px 80px 20px 80px;
         box-shadow: 0px 3px 6px 1px #bbbbbb;
     }
-    .flight-item span:nth-last-of-type(2) {
+    .info-container:nth-last-of-type(2) {
         padding-left: 40px;
     }
     .flight-status {

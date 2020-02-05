@@ -100,7 +100,7 @@
         <form class="booking" onsubmit="return validateForm(this)" method="post">
 
             <div>
-                <label for="fname">Name on Card <img src="error.png" width="20" height="20"></label>
+                <label for="name">Name on Card <img src="error.png" alt='error' width="20" height="20"></label>
                 <input type="text" id="name" name="name" placeholder="" onblur="">
                 <p>This field </p>
                             <p>is required</p>
@@ -108,32 +108,32 @@
 
 
             <div>
-                <label for="email">Card number <img src="error.png" width="20" height="20"></label>
+                <label for="number">Card number <img src="error.png"  alt='error' width="20" height="20"></label>
                 <input type="text" id="number" name="number" placeholder="1111-2222-3333-4444" onblur="">
                 <p>This field </p>
                             <p>is required</p>
             </div>
 
-            <span>
+            <div class ='hori-layout'>
                 <div>
-                    <label for="postcode">Expiry Month <img src="error.png" width="20" height="20"></label>
+                    <label for="month">Expiry Month <img src="error.png" alt='error' width="20" height="20"></label>
                     <input type="text" id="month" name="month" placeholder="" onblur="">
                     <p>This field </p>
                             <p>is required</p>
                 </div>
 
                 <div>
-                    <label for="postcode">Expiry Year <img src="error.png" width="20" height="20"></label>
+                    <label for="year">Expiry Year <img alt='error' src="error.png" width="20" height="20"></label>
                     <input type="text" id="year" name="year" placeholder="" onblur="">
                     <p style="display:none; color:red;">This field </p>
                             <p style="display:none; color:red;">is required</p>
                 </div>
                 
-            </span>
+                </div>
 
             
             <div>
-                <label for="email">CVV <img src="error.png" width="20" height="20"></label>
+                <label for="cvv">CVV <img src="error.png" alt='error' width="20" height="20"></label>
                 <input type="text" id="cvv" name="cvv" placeholder="123" onblur="">
                 <p>This field </p>
                             <p>is required</p>

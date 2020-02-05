@@ -66,14 +66,14 @@
                 
 
                <div>
-                    <label for="email">Email <img  src="error.png" width="20" height="20"></label>
+                    <label for="email">Email <img  src="error.png" alt='error' width="20" height="20"></label>
                     <input type="text" id="email" name="email" placeholder="Eg. john.smith@email.com" onblur="isElementValid(this)" value="<?php echo $email?>">
                     <p>Email </p>
                     <p>is invalid</p>
                 </div>
 
                 <div>
-                    <label for="password">Password <img  src="error.png" width="20" height="20"></label>
+                    <label for="password">Password <img  src="error.png" alt='error' width="20" height="20"></label>
                     <input type="password" id="password" name="password" placeholder="" onblur="isElementValid(this)" value="<?php echo $password?>">
                     <p>Password </p>
                     <p>is required</p>
